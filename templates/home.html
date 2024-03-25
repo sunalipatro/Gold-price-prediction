@@ -1,39 +1,94 @@
 <!DOCTYPE html>
-<html >
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Gold prediction API</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+ <meta charset="UTF-8">
+ <title>Gold prediction API</title>
+ <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+ <style>
+ body {
+    font-family: 'Open Sans Condensed', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+ }
 
-  
+ .login {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ h1 {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    color: #333;
+ }
+
+ form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ input[type="text"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+ }
+
+ button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Arimo', sans-serif;
+    width: 100%;
+ }
+
+ button:hover {
+    background-color: #0056b3;
+ }
+
+ .prediction-result {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+ }
+ </style>
 </head>
 
 <body>
  <div class="login">
-	<h1>Gold Price Prediction</h1>
+    <h1>Gold Price Prediction</h1>
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
+    <form action="{{ url_for('predict')}}" method="post">
       <input type="text" name="SPX" placeholder="SPX" required="required" /><br>
-    	<input type="text" name="USO" placeholder="USO" required="required" /><br>
-        <input type="text" name="SLV" placeholder="SLV" required="required" /><br>
-        <input type="text" name="EUR/USD" placeholder="EUR/USD" required="required" /><br>
+      <input type="text" name="USO" placeholder="USO" required="required" /><br>
+      <input type="text" name="SLV" placeholder="SLV" required="required" /><br>
+      <input type="text" name="EUR/USD" placeholder="EUR/USD" required="required" /><br>
 
-       
-
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      <button type="submit" id="predictButton" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
 
-   <br>
-   <br>
-  
-   
+    <br>
+    <br>
  </div>
- {{prediction_text}}
-
+ <div class="prediction-result">
+    {{prediction_text}}
+ </div>
 </body>
 </html>
