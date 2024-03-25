@@ -5,7 +5,7 @@
 
 1. [Github Account](https://github.com)
 2. [VS Code IDE](https://code.visualstudio.com/)
-3. [HerokuAccount](https://heroku.com)
+
 
 
 Create a new environment
@@ -19,3 +19,5 @@ To instal the required modules
 ```
 pip install -r requirement.txt
 ```
+
+To run the app run the flask app.
